@@ -2,15 +2,23 @@
 using BepInEx.Logging;
 using HarmonyLib;
 using LC_Addtions.Patches;
+using LethalLib.Modules;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.Assertions;
+using static LethalLib.Modules.ContentLoader;
 
 namespace LC_Addtions
 {
     [BepInPlugin(modGUID, modName, modVersion)]
+    [BepInDependency(LethalLib.Plugin.ModGUID)]
     public class LC_Addtions : BaseUnityPlugin
     {
         private const string modGUID = "Goldfish.LC_Additions";
@@ -29,6 +37,14 @@ namespace LC_Addtions
             {
                 Instance = this;
             }
+
+            string assetDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "lc_additions_assets");
+            AssetBundle bundle = AssetBundle.LoadFromFile(assetDir);
+
+            Item SilentOrchestra = bundle.LoadAsset<Item>("Assets/LC_Additions/Silent_Orchestra/Silent Orchestra.asset");
+            NetworkPrefabs.RegisterNetworkPrefab(SilentOrchestra.spawnPrefab);
+            Utilities.FixMixerGroups(SilentOrchestra.spawnPrefab);
+            Items.RegisterScrap(SilentOrchestra, 10000, Levels.LevelTypes.All);
 
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
 

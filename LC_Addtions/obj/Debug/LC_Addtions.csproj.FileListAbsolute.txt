@@ -5,7 +5,6 @@ C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\As
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\BepInEx.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\UnityEngine.CoreModule.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\UnityEngine.dll
-C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\Mono.Cecil.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\MonoMod.Utils.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\MonoMod.RuntimeDetour.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\netstandard.dll
@@ -111,3 +110,4 @@ C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\obj\Debug\LC
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\obj\Debug\LC_Addtions.csproj.CopyComplete
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\obj\Debug\LC_Addtions.dll
 C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\obj\Debug\LC_Addtions.pdb
+C:\Users\Jesper van Benthem\Desktop\LC_Mods\LC_Addtions\LC_Addtions\bin\Debug\LethalLib.dll
