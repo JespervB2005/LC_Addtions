@@ -31,6 +31,8 @@ namespace LC_Addtions
 
         internal ManualLogSource mls;
 
+        internal static List<AudioClip> SoundFX;
+
         void Awake()
         {
             if (Instance == null)
@@ -42,9 +44,15 @@ namespace LC_Addtions
             AssetBundle bundle = AssetBundle.LoadFromFile(assetDir);
 
             Item SilentOrchestra = bundle.LoadAsset<Item>("Assets/LC_Additions/Silent_Orchestra/Silent Orchestra.asset");
+            Silent_Orchestra script = SilentOrchestra.spawnPrefab.AddComponent<Silent_Orchestra>();
+            script.grabbable = true;
+            script.itemProperties = SilentOrchestra;
+
             NetworkPrefabs.RegisterNetworkPrefab(SilentOrchestra.spawnPrefab);
             Utilities.FixMixerGroups(SilentOrchestra.spawnPrefab);
             Items.RegisterScrap(SilentOrchestra, 10000, Levels.LevelTypes.All);
+
+
 
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
 
@@ -52,6 +60,10 @@ namespace LC_Addtions
 
             harmony.PatchAll(typeof(LC_Addtions));
             harmony.PatchAll(typeof(PlayerControllerBPatch));
+            harmony.PatchAll(typeof(Silent_Orchestra));
+
+            SoundFX = new List<AudioClip>();
+            SoundFX = bundle.LoadAllAssets<AudioClip>().ToList();
 
         }
 
