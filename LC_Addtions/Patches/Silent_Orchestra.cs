@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using GameNetcodeStuff;
 using HarmonyLib;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace LC_Addtions.Patches
 {
-
+    [HarmonyPatch(typeof(PlayerControllerB))]
     internal class Silent_Orchestra : PhysicsProp
     {
 
@@ -24,14 +25,25 @@ namespace LC_Addtions.Patches
             audioSource.volume = 0.5f;
 
         }
-
         public override void LateUpdate()
         {
+
             base.LateUpdate();
             if (audioTimer > 0)
             {
+                
                 audioTimer -= Time.deltaTime;
                 damageTimer -= Time.deltaTime;
+
+                //Collider[] hitCollider = new Collider[10];
+                //float radius = 25;
+                //int players = Physics.OverlapSphereNonAlloc(base.transform.position, radius, hitCollider, StartOfRound.Instance.playersMask);
+                //for (int i = 0; i < players; i++)
+                //{
+                //    Vector3 playerToObjectdirection = (base.transform.position - hitCollider[i].transform.position).normalized;
+                //    hitCollider[i].gameplayCamera.transform.rotation = playerToObjectdirection;
+                //}
+
             }
             if (audioTimer > 37 && audioTimer < 49.5) 
             { 
@@ -51,7 +63,6 @@ namespace LC_Addtions.Patches
                 audioSource.PlayOneShot(LC_Addtions.SoundFX[0]);
                 audioTimer = 90;
             }
-
         }
     }
 }
